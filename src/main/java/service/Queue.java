@@ -28,8 +28,7 @@ public class Queue {
             if(this.count > limitRequest){
                 return;
             }else {
-                System.out.println("Producer " + Thread.currentThread().getName() + " отправил заказ "
-                        + count);
+                System.out.println("Producer " + Thread.currentThread().getName() + " отправил заказ " + count);
                 hotelQueue.add(hotel);
                 count++;
                 try {
@@ -43,21 +42,7 @@ public class Queue {
     }
 
     public synchronized Hotel get(){
-        while (hotelQueue.isEmpty()){
-            if (this.count == limitRequest) {
-                return null;
-            } else {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        Hotel hotel = hotelQueue.pollFirst();
-        System.out.println("Consumer получил заказ " + hotel.toString() + "  " + this.hotelQueue.size() );
 
-        notifyAll();
-        return hotel;
-    }
+      return null;
+   }
 }

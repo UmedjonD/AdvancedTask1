@@ -9,20 +9,16 @@ public class Producer implements Runnable {
     private Hotel hotel;
     private HotelGenerator hotelGenerator;
 
-    public Producer(Queue queue){
+    public Producer(Queue queue) {
         this.queue = queue;
-    }
-
-    public Producer() {
     }
 
     @Override
     public void run() {
-//        while(!Thread.currentThread().isInterrupted()) {
-//            hotel = hotelGenerator.generatoreRequest();
-//            queue.add(hotel);
-        for (int i = 0; i<10; i++){
-            System.out.println("Ku Thread " + Thread.currentThread().getName() + " " + i);
+
+        for (int i = 0; i<15; i++){
+            queue.add(new Hotel(new HotelGenerator().generatoreRequest().getName(), Thread.currentThread().getName()));
+            // System.out.println("Поток " + Thread.currentThread().getName() + " " + i);
         }
     }
 }

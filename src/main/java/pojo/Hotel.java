@@ -1,17 +1,30 @@
 package pojo;
 
+import generatorRequest.HotelGenerator;
+
 public class Hotel {
     private String name;
     private int floor;
     private int number;
 
-    public Hotel() {
+    public Hotel(HotelGenerator hotelGenerator) {
     }
 
     public Hotel(String name, int floor, int number) {
         this.name = name;
         this.floor = floor;
         this.number = number;
+    }
+
+    public Hotel(String name) {
+
+    }
+
+    public Hotel() {
+        
+    }
+
+    public Hotel(String name, String name1) {
     }
 
     public String getName() {
@@ -46,5 +59,6 @@ public class Hotel {
                 ", numberRoom=" + number +
                 '}';
     }
+
 }
 
