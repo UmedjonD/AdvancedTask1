@@ -21,8 +21,8 @@ public class Producer implements Runnable {
 //        while(!Thread.currentThread().isInterrupted()) {
 //            hotel = hotelGenerator.generatoreRequest();
 //            queue.add(hotel);
-        for (int i = 0; i<500; i++){
-            System.out.println("Ku Thread " + i);
+        for (int i = 0; i<10; i++){
+            System.out.println("Ku Thread " + Thread.currentThread().getName() + " " + i);
         }
     }
 }

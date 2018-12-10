@@ -3,12 +3,14 @@ import producer.Producer;
 public class Main {
     public static void main(String[] args) {
 
-        Thread myThread = new Thread(new Producer());
-        myThread.start();
-
-        Thread myThread2 = new Thread(new Producer());
-        myThread2.start();
-        
-
+        for(int i=0; i<3; i++){
+            Thread myThread = new Thread(new Producer());
+            myThread.start();
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
