@@ -8,6 +8,7 @@ public class Producer implements Runnable {
     private Queue queue;
     private Hotel hotel;
     private HotelGenerator hotelGenerator;
+    private final int count = 15;
 
     public Producer(Queue queue) {
         this.queue = queue;
@@ -16,9 +17,8 @@ public class Producer implements Runnable {
     @Override
     public void run() {
 
-        for (int i = 0; i<15; i++){
-            queue.add(new Hotel(new HotelGenerator().generatoreRequest().getName(), Thread.currentThread().getName()));
-            // System.out.println("Поток " + Thread.currentThread().getName() + " " + i);
+        for (int i = 0; i<count; i++){
+            queue.add(new HotelGenerator().generatoreRequest());
         }
     }
 }

@@ -4,6 +4,7 @@ import pojo.Hotel;
 import java.util.Random;
 
 public class HotelGenerator {
+
     public Hotel generatoreRequest(){
         Hotel hotel = new Hotel();
         Random random = new Random();

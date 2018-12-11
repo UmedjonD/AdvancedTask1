@@ -5,6 +5,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
+
 import pojo.Hotel;
 
 import javax.swing.plaf.TableHeaderUI;
@@ -17,32 +18,32 @@ public class Queue {
     private static final int limitRequest = 15;
     private volatile int count;
 
-    public synchronized void add(Hotel hotel){
+    public synchronized void add(Hotel hotel) {
 
-        while (this.hotelQueue.size() == this.maxRequest) {
+        if (this.hotelQueue.size() >= this.maxRequest) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(this.count > limitRequest){
-                return;
-            }else {
-                System.out.println("Producer " + Thread.currentThread().getName() + " отправил заказ " + count);
-                hotelQueue.add(hotel);
-                count++;
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                notifyAll();
-            }
         }
+        if (this.count > limitRequest) {
+            return;
+        }
+        System.out.println("Producer " + Thread.currentThread().getName() + " отправил заказ " + count);
+        hotelQueue.add(hotel);
+        count++;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        notifyAll();
     }
 
-    public synchronized Hotel get(){
+    public synchronized Hotel get() {
 
-      return null;
-   }
+
+        return null;
+    }
 }

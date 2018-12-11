@@ -35,7 +35,7 @@ public class Hotel {
         this.name = name;
     }
 
-    public int getFloor(int i) {
+    public int getFloor() {
         return floor;
     }
 

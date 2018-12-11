@@ -1,3 +1,4 @@
+import consumer.Consumer;
 import producer.Producer;
 import service.Queue;
 
@@ -11,5 +12,10 @@ public class Main {
             Thread myThread = new Thread(producer);
             myThread.start();
         }
+//        for (int i = 0; i < 6; i++) {
+//            Consumer consumer = new Consumer();
+//            Thread myThread = new Thread(consumer);
+//            myThread.start();
+//        }
     }
 }
